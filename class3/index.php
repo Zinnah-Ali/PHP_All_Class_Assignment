@@ -1,7 +1,7 @@
 <?php
 //Subject Name
-$subjectA_mark = 90;
-$subjectB_mark = 120;
+$subjectA_mark = 120;
+$subjectB_mark = 80;
 $subjectC_mark = 90;
 $subjectD_mark = 90;
 
@@ -20,10 +20,7 @@ if($subjectA_mark < 40 || $subjectB_mark < 40 || $subjectC_mark < 40 || $subject
     echo "Your Resoult is F";
 }elseif($subjectA_mark > 100 || $subjectB_mark > 100 || $subjectC_mark > 100 || $subjectD_mark > 100){
     echo "Your Resoult is Not Found";
-}
-
-//Marking Condition
-elseif($avarageMark >= 80 && $avarageMark <= 100){
+}elseif($avarageMark >= 80 && $avarageMark <= 100){
     echo "Your Resoults is A+";
 }elseif($avarageMark < 80 && $avarageMark >=70){
     echo "Your Resoult is A";
@@ -52,7 +49,7 @@ echo "<br>";
 
 
 //Bike Name 
-$suzuki_bike = "gear3";
+$suzuki_bike = "gear2";
 
 //Switch Condition
 switch ($suzuki_bike) {
