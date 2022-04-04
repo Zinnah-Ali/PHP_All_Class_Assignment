@@ -20,7 +20,9 @@ if($subjectA_mark < 40 || $subjectB_mark < 40 || $subjectC_mark < 40 || $subject
     echo "Your Resoult is F";
 }elseif($subjectA_mark > 100 || $subjectB_mark > 100 || $subjectC_mark > 100 || $subjectD_mark > 100){
     echo "Your Resoult is Not Found";
-}elseif($avarageMark >= 80 && $avarageMark <= 100){
+}
+//Conditional resoult
+elseif($avarageMark >= 80 && $avarageMark <= 100){
     echo "Your Resoults is A+";
 }elseif($avarageMark < 80 && $avarageMark >=70){
     echo "Your Resoult is A";
