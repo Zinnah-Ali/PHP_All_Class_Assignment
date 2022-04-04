@@ -4,7 +4,7 @@
 $num = 7;  
 $numEnd = 1;  
 for ($x=$num; $x>=1; $x--) {  
- $resoult = $numEnd = $numEnd * $x;  
+$resoult =  $numEnd *=$x;  
 
  echo $resoult."<br>";
 }  

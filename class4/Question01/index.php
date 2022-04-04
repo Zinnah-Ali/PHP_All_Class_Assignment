@@ -1,10 +1,10 @@
 <?php
     //Show the Date of this month using for loop
+    $allMontDate = cal_days_in_month(CAL_GREGORIAN, 8, 2009);
     $startDate = 1;
-    $nowDate = date('d');
-
-    for ($x=$startDate; $x <= $nowDate ; $x++) { 
-        echo $x.'<br>';
+    
+    for ($i=$startDate; $i <=$allMontDate; $i++) { 
+       echo $i. "<br>";
     }
 
 ?>
@@ -30,7 +30,7 @@
                         <select name="" id="" class="form-select">
                             <?php
                             //Show the date of this month DropDown Select Option. uses for loop and foreach loop or array
-                            for($x=$startDate; $x <= $nowDate; $x++){
+                            for($x=$startDate; $x <= $allMontDate; $x++){
                                 $dateArry= array($x);
 
                                 foreach($dateArry as $data){
