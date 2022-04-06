@@ -4,8 +4,6 @@
 	$month = 4;
 	$years = 2022;
     $allMontDate = cal_days_in_month(CAL_GREGORIAN, $month, $years);
-
-    $allMontDate = cal_days_in_month(CAL_GREGORIAN, 4, 2022);
     $startDate = 1;
     
     for ($i=$startDate; $i <=$allMontDate; $i++) { 
