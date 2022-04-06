@@ -1,6 +1,8 @@
 <?php
     //Show the Date of this month using for loop
-    $allMontDate = cal_days_in_month(CAL_GREGORIAN, 4, 2022);
+	$month = 4;
+	$years = 2022;
+    $allMontDate = cal_days_in_month(CAL_GREGORIAN, $month, $years);
     $startDate = 1;
     
     for ($i=$startDate; $i <=$allMontDate; $i++) { 
