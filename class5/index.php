@@ -4,6 +4,7 @@
 echo "<h2>Question 01</h2>";
 // Thih is a index arry
 $numbers = [12,34,2,6,78,11,9,7];
+
 foreach ($numbers as $key => $number) {
     //Prime Number 2 Showing Condition
     if ($number == 2) {
