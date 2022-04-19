@@ -1,0 +1,51 @@
+/* team Header Designe */
+.team-header{
+    padding: 50px 0;
+    margin-bottom: 50px;
+}
+.team-header h2{
+    font-size: 60px;
+    font-weight: 900;
+}
+.team-header p{
+    font-size: 16px;
+    font-weight: 200;
+}
+
+/* team Body Designe */
+.team-body img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.team-body h4{
+    font-size: 25px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+.team-body h6{
+    font-size: 16px;
+    color: rgb(5, 119, 180);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.team-body .team-icon i{
+    margin: 0 10px ;
+    background: rgb(0, 95, 173);
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
