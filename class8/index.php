@@ -77,10 +77,10 @@ echo "<br>";
 echo "<br>";
 //Question 04
 // Age Calculator 
-function ageCal( $birdthYears ){
+function ageCal( $birthYears ){
    
     $nowYears = date('Y');
-    $ageCal = $nowYears - $birdthYears;
+    $ageCal = $nowYears - $birthYears;
     return "Your Age " . $ageCal . " Years Old";
 }
 
