@@ -58,6 +58,8 @@ if (isset( $_POST['submit'] )) {
         $message = valideMessage('Your Email is not valide');
     }elseif( valideEduMail( $email ) == false ){
         $message = valideMessage( 'Your Email is not Edu Mail' );
+    }elseif( $age < 18 || $age > 60 ){
+        $message = valideMessage( 'Your Age is not correct');
     }
     else{
         $message = valideMessage('Succes all data sumited', 'info');
