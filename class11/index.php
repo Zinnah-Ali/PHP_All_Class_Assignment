@@ -71,18 +71,7 @@
     } 
    }
 
-
-   /***
-    * Show Message Function 
-    *
-    */
-
-    function shoMessage( $message ){
-        if ( isset( $message ) ) { 
-            echo $message; 
-        }
-    }
-
+// Select All Fields
 if (isset( $_POST['submit'] )) {
     
     //All Filed Selected
