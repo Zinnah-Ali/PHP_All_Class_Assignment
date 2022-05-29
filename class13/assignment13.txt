@@ -1,0 +1,92 @@
+CREATE DATABASE user_information:
+
+First Table (Users_table) Under Database user_information: 
+CREATE TABLE Users_table (
+    id INTEGER PRIMARY KEY,
+    username VARCHAR(65) NOT NULL,
+    age INTEGER NOT NULL,
+    phone TEXT (11) NOT NULL,
+    address TEXT (65535) NOT NULL,
+    created_at TIMESTAMP NOT NULLL,
+    updated_at TIMESTAMP NOT NULL
+);
+
+
+Single data entry query for (Users_table):
+INSERT INTO Users_table (username,age,phone,address,created_at,updated_at) VALUES ('tonmoy',60,987654321,'Rajshahi', 2020-06-28 9:10:16, 2021-05-30 19:12:18);
+
+
+Multiple data entry query for (Users_table):
+INSERT INTO Users_table (username,age,phone,address,created_at, updated_at) VALUES 
+('raihan_islam',58,965472135,'Dhaka', 1996-10-10 08:30:57, 2001-08-19 15:22:26),
+('nazmul_hasan',41,963521478,'Rajshahi', 1997-08-29 11:31:07, 2020-06-22 25:20:36),
+('ruponkar_bagchi',33,981234567,'Dhaka', 2001-02-18 10:30:51, 2000-03-13 16:25:36),
+
+
+
+
+
+Update query for (Users_table):
+UPDATE Users_table SET 'tonmoy' = 'tonmoy', age = 45, WHERE id = 1;
+Delete query for ((Users_table) DELETE FROM Users_table WHERE id = 1;
+------------------------------------------------- End Users_table ----------------------------------------------------
+
+
+------------ Second Table (Products_table) Under Database user_information -----------
+CREATE TABLE Products_table (
+    id INTEGER PRIMARY KEY,
+    post_title TEXT (65535) NOT NULL,
+    post_details LONGTEXT (4294967295) NOT NULL,
+    post_file TEXT (65535) NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL,
+    deleted_at TIMESTAMP NOT NULL
+
+);
+
+Single data entry query for (Products_table) :
+INSERT INTO Products_table (post_title, post_details, post_file, created_at, updated_at, deleted_at) VALUES 
+('This is Product Title', 'Post description this is Description ', 2022-05-28 10:30:10, 2022-06-10 18:46:10, 2022-05-11 16:33:10);
+
+
+Multiple data entry query for (Products_table):
+INSERT INTO Products_table (post_title,post_details,post_file,created_at,updated_at, deleted_at) VALUES 
+('This is add multipole datat title?', 'This is add multipole datat Description', 2022-06-24 8:30:15, 2021-01-18 18:36:12, 2022-04-11 16:33:47),
+('This is add multipole datat title 2 ?', 'This is add multipole datat Description2', 2022-06-24 8:30:15, 2021-01-28 18:36:12, 2022-04-11 16:33:47);
+
+Update query for (Products_table):
+UPDATE Products_table SET 'what is mysql' = 'What is MySQL', WHERE id = 1;
+
+Delete query for ((Products_table):
+DELETE FROM Products_table WHERE id = 1;
+------------------------------------- End Products_table ----------------------------------
+
+
+
+--------For creating table as (comments_table) in user_information ---------
+CREATE TABLE comments_table(
+    id INTEGER PRIMARY KEY,
+    post_id INTEGER NOT NULL,
+    comment TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL,
+    deleted_at TIMESTAMP NOT NULL
+);
+
+Single data entry query for (comments_table):
+INSERT INTO comments_table (post_id,comment,created_at,updated_at, deleted_at) VALUES 
+(01, 'This is Comment Text', 2020-06-24 10:32:35, 2021-01-28 18:38:10, 2022-04-11 16:13:57);
+
+Multiple data entry query for (comments_table) : 
+INSERT INTO comments_table (post_id,comment,created_at,updated_at, deleted_at) VALUES 
+(02,'Hi everyone',2020-06-24 8:30:15, 2021-01-28 18:36:12, 2022-04-11 16:33:47);
+(03,'Hello world',2020-06-24 8:30:15, 2021-01-28 18:36:12, 2022-04-11 16:33:47);
+
+Update query for (comments_table) :
+UPDATE comments_table SET 'Hello Bangladesh' = 'Welcome to Bangladesh', WHERE id = 1;
+
+Delete query for (comments_table) :
+DELETE FROM comments_table WHERE id = 1;
+
+------------------------------------------------- End  comments_table --------------------------------------------
+
