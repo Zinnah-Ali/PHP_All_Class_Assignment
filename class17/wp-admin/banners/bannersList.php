@@ -1,8 +1,17 @@
-<?php include('./head.php'); ?>
+<?php
+	if( basename(__DIR__) !== "wp-admin" ){
+		$baseUrl = "../";
+		$wpUrl = false;
+	}else{
+		$baseUrl = "./";
+		$wpUrl = true;
+	}
+?>
+<?php include('../include/head.php'); ?>
 <body>
 
 	<!-- Main navbar -->
-	<?php include('./headNav.php'); ?>
+	<?php include('../include/headNav.php'); ?>
 	<!-- /main navbar -->
 
 
@@ -13,7 +22,7 @@
 		<div class="page-content">
 
 			<!-- Main sidebar -->
-		<?php include('./include/sidebarNav.php'); ?>
+		<?php include('../include/sidebarNav.php'); ?>
 			<!-- /main sidebar -->
 
 
@@ -116,7 +125,7 @@
 	</div>
 	<!-- /page container -->
 
-<?php include('./script.php'); ?>
+<?php include('../include/script.php'); ?>
 
 </body>
 </html>
