@@ -1,13 +1,12 @@
 <?php
+
 	if( basename(__DIR__) !== "wp-admin" ){
 		$baseUrl = "../";
-		$wpUrl = false;
-	}else{
-		$baseUrl = "./";
 		$wpUrl = true;
+	}else{
+		$baseUrl = "";
+		$wpUrl = false;
 	}
-	
-	$activeUrl = basename(__DIR__);
 ?>
 <?php include('include/head.php'); ?>
 <body>

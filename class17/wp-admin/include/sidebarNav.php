@@ -25,14 +25,14 @@
         </div>
         <!-- /user menu -->
 
-
         <!-- Main navigation -->
         <div class="sidebar-category sidebar-category-visible">
             <div class="category-content no-padding">
                 <ul class="navigation navigation-main navigation-accordion">
-                    <li class="<?php $activeUrl == "wp-admin" ? "active" : ""; ?>"><a href="index.php"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-                    <li class="<?php $activeUrl == "banners" ? "active" : ""; ?>"><a href="<?php echo $wpUrl == true ? 'banners/' : '../banners/';?>bannersList.php"><i class="icon-images3"></i> <span>Banners</span></a></li>
-                    <li><a href="index.html"><i class="icon-shutter"></i> <span>Services</span></a></li>
+                    <?php echo $wpUrl; ?>
+                    <li class=""><a href="<?php echo $wpUrl == true ? '' : '../';?>/index.php"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+                    <li class=""><a href="<?php echo $wpUrl == true ? '' : '../';?>banners/bannersList.php"><i class="icon-images3"></i> <span>Banners</span></a></li>
+                    <li class=""><a href="<?php echo $wpUrl == true ? '' : '../';?>services/servicesList.php"><i class="icon-shutter"></i> <span>Services</span></a></li>
                     <li><a href="index.html"><i class="icon-printer"></i> <span>Sections</span></a></li>
                     <li><a href="index.html"><i class="icon-portfolio"></i> <span>Our Project</span></a></li>
                     <li><a href="index.html"><i class="icon-users4"></i> <span>Our Staff</span></a></li>

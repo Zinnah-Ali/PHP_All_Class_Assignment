@@ -70,7 +70,7 @@
 						<!-- Basic examples -->
 						<div class="panel panel-flat">
 							<div class="panel-heading">
-								<h5 class="panel-title">Edite Banner</h5>
+								<h5 class="panel-title">Edite Services</h5>
 								<div class="heading-elements">
 									<ul class="icons-list">
 										<li><a data-action="collapse"></a></li>
@@ -88,47 +88,40 @@
 								</div> 
 								<?php } ?>
 								<?php 
-									$banner_id = $_GET['banner_id'];
-									$updateSelectQry = "SELECT * FROM banners WHERE id = '{$banner_id}'";
-									$updateBannerList = mysqli_query($dbCon, $updateSelectQry);
+									$services_id = $_GET['services_id'];
+									$updateSelectQry = "SELECT * FROM services WHERE id = '{$services_id}'";
+									$updateServicesList = mysqli_query($dbCon, $updateSelectQry);
 								?>
 								<?php
-									foreach ($updateBannerList as $key => $banner) {
+									foreach ($updateServicesList as $key => $services) {
 								?>
-									<form class="form-horizontal" action="../controller/bannersConfig.php?banner_id=<?php echo $banner['id']; ?>" method="POST">
+									<form class="form-horizontal" action="../controller/servicesConfig.php?services_id=<?php echo $services['id'];?>" method="POST">
 										<fieldset class="content-group">
 
 											<div class="form-group">
-												<label class="control-label col-lg-2" for="title">Title</label>
+												<label class="control-label col-lg-2" for="services_name">Services Name</label>
 												<div class="col-lg-10">
-													<input type="text" class="form-control" name="title" value= "<?= $banner['title']; ?>"value= "<?= $banner['title']; ?>" id="title">
+													<input type="text" class="form-control" name="services_name" value= "<?= $services['services_name']; ?>" id="services_name">
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label col-lg-2" for="sub_title">Sub Title</label>
+												<label class="control-label col-lg-2" for="services_details">Services Details</label>
 												<div class="col-lg-10">
-													<input type="text" class="form-control" name="sub_title"  value= "<?= $banner['sub_title']; ?>" id="sub_title">
+													<textarea rows="5" cols="5" class="form-control" name="services_details"  id="details"><?= $services['services_details']; ?></textarea>
 												</div>
 											</div>
 											<div class="form-group">
-												<label class="control-label col-lg-2" for="details">Details</label>
+												<label class="control-label col-lg-2" for="services_icon">Services Icon</label>
 												<div class="col-lg-10">
-													<textarea rows="5" cols="5" class="form-control" name="details"  id="details"><?= $banner['details']; ?></textarea>
-												</div>
-											</div>
-										
-											<div class="form-group">
-												<label class="control-label col-lg-2" for="banners_img">Banner Image</label>
-												<div class="col-lg-10">
-													<input type="text" class="form-control" name="banners_img" value= "<?= $banner['banners_img']; ?>" id="banners_img">
+													<input type="text" class="form-control" name="services_icon"  value= "<?= $services['services_icon']; ?>" id="services_icon">
 												</div>
 											</div>
 
 										</fieldset>
 
 										<div class="text-right">
-											<a href="bannersList.php" class="btn btn-default">Back To Banner List</a>
-											<button type="submit" class="btn btn-primary" name="update_banner"> Update Banner </button>
+											<a href="servicesList.php" class="btn btn-default">Back To Banner List</a>
+											<button type="submit" class="btn btn-primary" name="update_services"> Update Banner </button>
 										</div>
 									</form>
 								<?php } ?>
