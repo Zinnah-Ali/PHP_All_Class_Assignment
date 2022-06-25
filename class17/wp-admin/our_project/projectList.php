@@ -38,7 +38,7 @@
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li><a href="index.php"><i class="icon-home2 position-left"></i> Home</a></li>
-							<li class="active">Banner List</li>
+							<li class="active">Project List</li>
 						</ul>					
 						<ul class="breadcrumb-elements">
 							<li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
@@ -69,10 +69,10 @@
 					<!-- Banners List -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Banners List</h5>
+							<h5 class="panel-title">Project List</h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
-									<li style="margin-right: 10px; color:#fff; "><a href="servicesListAdd.php" class="btn btn-primary add-new">Add New</a></li>
+									<li style="margin-right: 10px; color:#fff; "><a href="<?php echo $wpUrl == true ? "our_project/" : ""; ?>projectListAdd.php" class="btn btn-primary add-new">Add New</a></li>
 			                		<li><a data-action="collapse"></a></li>
 			                		<li><a data-action="close"></a></li>
 			                	</ul>
@@ -91,29 +91,29 @@
 							<thead style="border-top:1px solid #000;">
 								<tr>
 									<th width="5%">Sl.</th>
-									<th width="30$">Services Name</th>
-									<th width="35%">Services Details</th>
-									<th width="20%">Services Icon</th>
+									<th width="30$">Project Name</th>
+									<th width="20%">Project Link</th>
+									<th width="35%">Project Thumb</th>
 									<th width="10%" class="text-center">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php 
-									$selecServicestQry = "SELECT * FROM services WHERE services_status=1";
-									$servicesList = mysqli_query($dbCon, $selecServicestQry);
+									$selectQry = "SELECT * FROM our_project WHERE project_status=1";
+									$projectsList = mysqli_query($dbCon, $selectQry);
 								?>
 
 								<?php
-									foreach ($servicesList as $key => $services) {	
+									foreach ($projectsList as $key => $singleProject) {	
 								?>
 								<tr>
 									<td><?= ++$key; ?></td>
-									<td><?= $services['services_name']; ?></td>
-									<td><?= $services['services_details']; ?></td>
-									<td><?= $services['services_icon']; ?></td>
+									<td><?= $singleProject['project_name']; ?></td>
+									<td><?= $singleProject['project_link']; ?></td>
+									<td><img style="width:250px" src="<?= $singleProject['project_thumb']?>"></td>
 									<td class="text-center">
-										<a href="servicesListUpdate.php?services_id=<?php echo $services['id']; ?>"><i class="icon-pencil7"></i></a>
-										<a href="servicesDelete.php?services_id=<?php echo $services['id']; ?>"><i class="icon-trash"></i></a>
+										<a href="projectListUpdate.php?project_id=<?php echo $singleProject['id']; ?>"><i class="icon-pencil7"></i></a>
+										<a href="projectDelete.php?project_id=<?php echo $singleProject['id']; ?>"><i class="icon-trash"></i></a>
 									</td>
 								</tr>
 								<?php

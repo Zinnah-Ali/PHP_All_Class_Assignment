@@ -35,19 +35,20 @@ if ( isset( $_POST['update_services'] ) ) {
     $services_details = $_POST['services_details'];
     $services_icon = $_POST['services_icon'];
 
-    if ($services_name == '' || $services_details == '' || $services_icon = '') {
-       echo "All Fild is requerd";
+    if ($services_name == '' || $services_details == '' || $services_icon == '') {
+       $message = "All Fild is requerd";
     }else{
        $updateServiceQry = " UPDATE services SET services_name = '{$services_name}', services_details = '{$services_details}', services_icon = '{$services_icon}' WHERE id = '{$services_id}'";
         
        $updateService = mysqli_query($dbCon, $updateServiceQry);
 
        if ( isset($updateService) ) {
-        echo "Update Done";
+        $message = "Update Done";
        }else{
-        echo "not update";
+        $message = "not update";
        }
     }
+    header("Location: ../services/servicesListUpdate.php?services_id={$services_id}&msg={$message}");
 }
 
 

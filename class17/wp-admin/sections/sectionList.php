@@ -38,7 +38,7 @@
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li><a href="index.php"><i class="icon-home2 position-left"></i> Home</a></li>
-							<li class="active">Banner List</li>
+							<li class="active">Sections Title</li>
 						</ul>					
 						<ul class="breadcrumb-elements">
 							<li><a href="#"><i class="icon-comment-discussion position-left"></i> Support</a></li>
@@ -69,10 +69,10 @@
 					<!-- Banners List -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Banners List</h5>
+							<h5 class="panel-title">Sections Title</h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
-									<li style="margin-right: 10px; color:#fff; "><a href="servicesListAdd.php" class="btn btn-primary add-new">Add New</a></li>
+									<li style="margin-right: 10px; color:#fff; "><a href="<?php echo $wpUrl == true ? "sections/" : ""; ?>sectionListAdd.php" class="btn btn-primary add-new">Add New</a></li>
 			                		<li><a data-action="collapse"></a></li>
 			                		<li><a data-action="close"></a></li>
 			                	</ul>
@@ -91,29 +91,31 @@
 							<thead style="border-top:1px solid #000;">
 								<tr>
 									<th width="5%">Sl.</th>
-									<th width="30$">Services Name</th>
-									<th width="35%">Services Details</th>
-									<th width="20%">Services Icon</th>
+									<th width="20$">Title</th>
+									<th width="25%">Sub Title</th>
+									<th width="30%">Details</th>
+									<th width="10%">Page Number</th>
 									<th width="10%" class="text-center">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php 
-									$selecServicestQry = "SELECT * FROM services WHERE services_status=1";
-									$servicesList = mysqli_query($dbCon, $selecServicestQry);
+									$selectQry = "SELECT * FROM sections";
+									$sectionsList = mysqli_query($dbCon, $selectQry);
 								?>
 
 								<?php
-									foreach ($servicesList as $key => $services) {	
+									foreach ($sectionsList as $key => $section) {	
 								?>
 								<tr>
 									<td><?= ++$key; ?></td>
-									<td><?= $services['services_name']; ?></td>
-									<td><?= $services['services_details']; ?></td>
-									<td><?= $services['services_icon']; ?></td>
+									<td><?= $section['title']; ?></td>
+									<td><?= $section['sub_title']; ?></td>
+									<td><?= $section['details']; ?></td>
+									<td><?= $section['page_no']; ?></td>
 									<td class="text-center">
-										<a href="servicesListUpdate.php?services_id=<?php echo $services['id']; ?>"><i class="icon-pencil7"></i></a>
-										<a href="servicesDelete.php?services_id=<?php echo $services['id']; ?>"><i class="icon-trash"></i></a>
+										<a href="sectionListUpdate.php?section_id=<?php echo $section['id']; ?>"><i class="icon-pencil7"></i></a>
+										<a href="sectionDelete.php?section_id=<?php echo $section['id']; ?>"><i class="icon-trash"></i></a>
 									</td>
 								</tr>
 								<?php

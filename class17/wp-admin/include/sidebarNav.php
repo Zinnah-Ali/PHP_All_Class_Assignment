@@ -33,10 +33,10 @@
                     <li class=""><a href="<?php echo $wpUrl == true ? '' : '../';?>/index.php"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
                     <li class=""><a href="<?php echo $wpUrl == true ? '' : '../';?>banners/bannersList.php"><i class="icon-images3"></i> <span>Banners</span></a></li>
                     <li class=""><a href="<?php echo $wpUrl == true ? '' : '../';?>services/servicesList.php"><i class="icon-shutter"></i> <span>Services</span></a></li>
-                    <li><a href="index.html"><i class="icon-printer"></i> <span>Sections</span></a></li>
-                    <li><a href="index.html"><i class="icon-portfolio"></i> <span>Our Project</span></a></li>
-                    <li><a href="index.html"><i class="icon-users4"></i> <span>Our Staff</span></a></li>
-                    <li><a href="index.html"><i class="icon-collaboration"></i> <span>Our Clients</span></a></li>
+                    <li><a href="<?php echo $wpUrl == true ? '' : '../';?>sections/sectionList.php""><i class="icon-printer"></i> <span>Sections</span></a></li>
+                    <li><a href="<?php echo $wpUrl == true ? '' : '../';?>our_project/projectList.php"><i class="icon-portfolio"></i> <span>Our Project</span></a></li>
+                    <li><a href="<?php echo $wpUrl == true ? '' : '../';?>our_staff/staffList.php"><i class="icon-users4"></i> <span>Our Staff</span></a></li>
+                    <li><a href="<?php echo $wpUrl == true ? '' : '../';?>our_clients/clientsList.php"><i class="icon-collaboration"></i> <span>Our Clients</span></a></li>
                     <li><a href="index.html"><i class="icon-bubbles7"></i> <span>Content Message</span></a></li>
 
                     <li>
