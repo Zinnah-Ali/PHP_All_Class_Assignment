@@ -61,6 +61,16 @@ if ( isset($_POST['add_banner']) ) {
 // Update Banners
 if ( isset( $_POST['update_banner'] ) ) {
 
+    // Show Old Image
+    $banner_id = $_GET['banner_id'];
+    $updateSelectQry = "SELECT * FROM banners WHERE id = '{$banner_id}'";
+    $updateBannerList = mysqli_query($dbCon, $updateSelectQry);
+    $oldImg = "";
+    foreach ($updateBannerList as $key => $banners) {
+        $oldImg = $banners['banners_img'];
+    }
+
+    
         // Upload Image File Code
         $banners_img = $_FILES['banners_img'];
         $uploadStatus = false;
@@ -76,10 +86,19 @@ if ( isset( $_POST['update_banner'] ) ) {
             $validExtArr  = array('jpg', 'png', 'jpeg');
             $inExtantion  = in_array($imgExtantion, $validExtArr);
             $randomImgName= time().'.'.$imgExtantion;
-            if (isset($inExtantion)) {
+
+           
+            if ($inExtantion) {
+                if( $oldImg != $randomImgName ){
+                    $file = "../uploads/bannersImg/".$oldImg;
+                    if (file_exists($file)) {
+                        unlink( $file );
+                    }
+                }
                 $uploadImg = move_uploaded_file($img_tmp_name, "../uploads/bannersImg/".$randomImgName);
-                $uploadStatus = true;
+                $uploadStatus = true;               
             }else{
+                $randomImgName = $oldImg;
                 $message = $inExtantion." File is not Valide";
             }
           
@@ -91,7 +110,7 @@ if ( isset( $_POST['update_banner'] ) ) {
     $details = $_POST['details'];
     $banners_img = $_POST['banners_img'];
 
-    if ( $title == "" || $sub_title == "" || $details == ""  ) {
+    if ( $title == "" || $sub_title == "" || $details == "" ) {
         $message = "All Field is Requerd";
         header("Location: ../banners/bannersListUpdate.php?banner_id={$banner_id}&msg={$message}" );
 

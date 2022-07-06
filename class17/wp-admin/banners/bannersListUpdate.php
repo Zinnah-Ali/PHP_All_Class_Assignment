@@ -91,6 +91,7 @@
 									$banner_id = $_GET['banner_id'];
 									$updateSelectQry = "SELECT * FROM banners WHERE id = '{$banner_id}'";
 									$updateBannerList = mysqli_query($dbCon, $updateSelectQry);
+									
 								?>
 								<?php
 									foreach ($updateBannerList as $key => $banner) {
@@ -122,13 +123,14 @@
 											<div class="form-group">
 												<label for="" class="control-label col-lg-2" for="banners_img">Banners Image</label>
 												<div class="col-lg-10">
-													<input type="file" class="file-input" multiple="multiple"   name="banners_img" value="<?= $banner['banners_img']; ?>" id="banners_img">
-												
+
+													<input type="file" class="file-input" multiple="multiple" name="banners_img" value="<?= $banner['banners_img']; ?>" id="banners_img">
+													
 													<div class="file-preview">
 														<div class="close fileinput-remove text-right">×</div>
 														<div class="file-preview-thumbnails">
 														<div class="file-preview-frame" id="preview-1657084120586-0">
-														<img src="../uploads/bannersImg/<?= $banner['banners_img']; ?>" class="file-preview-image" title="Screenshot_3.png" alt="Screenshot_3.png" style="width:auto;height:160px;">
+														<img src="../uploads/bannersImg/<?= $banner['banners_img']; ?>" class="file-preview-image" title="<?= $banner['banners_img']; ?>" alt="<?= $banner['banners_img']; ?>" style="width:auto;height:160px;">
 														</div>
 														</div>
 														<div class="clearfix"></div>   <div class="file-preview-status text-center text-success"></div>
