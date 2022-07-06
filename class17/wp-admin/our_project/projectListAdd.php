@@ -6,8 +6,12 @@
 		$baseUrl = "./";
 		$wpUrl = true;
 	}
+
 ?>
-<?php include('../include/head.php'); ?>
+<?php 
+	include('../include/head.php');
+	require("../controller/dbConfig.php");
+ ?>
 <body>
 	<!-- Main navbar -->
 	<?php include('../include/headNav.php'); ?>
@@ -89,7 +93,26 @@
 								<?php } ?>
 							<form class="form-horizontal" action="../controller/projectConfig.php" method="POST">
 								<fieldset class="content-group">
-
+								<?php 
+									$categorySelectQry = "SELECT * FROM categories WHERE categories_status=1";
+									$categoryList = mysqli_query($dbCon, $categorySelectQry);								
+								?>
+			
+									<div class="form-group">
+										<label class="control-label col-lg-2" for="category_id">Category Name</label>
+										<div class="col-lg-10">
+											<select name="category_id" class="form-control" id="category_id">
+												<?php
+													foreach ($categoryList as $key => $category) {
+	
+												?>
+												<option value="<?php echo $category['id'];?>"><?php echo $category['categories_name'];?></option>
+												<?php
+													}
+												?>
+											</select>
+										</div>
+									</div>
 									<div class="form-group">
 										<label class="control-label col-lg-2" for="project_name">Project Name</label>
 										<div class="col-lg-10">

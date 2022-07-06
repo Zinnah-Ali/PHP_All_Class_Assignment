@@ -6,9 +6,9 @@
 		$baseUrl = "./";
 		$wpUrl = true;
 	}
-
 ?>
 <?php include('../include/head.php'); ?>
+<?php require('../controller/dbConfig.php');?>
 <body>
 	<!-- Main navbar -->
 	<?php include('../include/headNav.php'); ?>
@@ -28,12 +28,13 @@
 
 			<!-- Main content -->
 			<div class="content-wrapper">
+
 				<!-- Page header -->
 				<div class="page-header">
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
 							<li><a href="index.html"><i class="icon-home2 position-left"></i> Home</a></li>
-							<li class="active">Banner List</li>
+							<li class="active"> Edite Project</li>
 						</ul>
 
 						<ul class="breadcrumb-elements">
@@ -69,17 +70,16 @@
 						<!-- Basic examples -->
 						<div class="panel panel-flat">
 							<div class="panel-heading">
-								<h5 class="panel-title">Add Banners</h5>
+								<h5 class="panel-title">Edite Project</h5>
 								<div class="heading-elements">
 									<ul class="icons-list">
-									<li style="margin-right: 10px; color:#fff; "><a href="bannersListAdd.php" class="btn btn-primary add-new">Add New</a></li>
 										<li><a data-action="collapse"></a></li>
 									</ul>
 								</div>
 							</div>
 
 							<div class="panel-body">
-								<?php
+							<?php
 									if ( isset( $_GET['msg']) ) {
 								?>
 								<div class="alert alert-info no-border">
@@ -87,43 +87,44 @@
 									<span class="text-semibold"></span> <?php echo $_GET['msg']; ?>
 								</div> 
 								<?php } ?>
-							<form class="form-horizontal" action="../controller/bannersConfig.php" method="POST" enctype="multipart/form-data">
-								<fieldset class="content-group">
+								<?php 
+									$category_id = $_GET['category_id'];
+									$updateSelectQry = "SELECT * FROM categories WHERE id={$category_id}";
+									$updateCategorytList = mysqli_query($dbCon, $updateSelectQry);
+								?>
+								<?php
+									foreach ($updateCategorytList as $key => $singleCategories) {
+								?>
+									<form class="form-horizontal" action="../controller/categoriesConfig.php?category_id=<?php echo $singleCategories['id']; ?>" method="POST">
+										<fieldset class="content-group">
 
-									<div class="form-group">
-										<label class="control-label col-lg-2" for="title">Title</label>
-										<div class="col-lg-10">
-											<input type="text" class="form-control" name="title" id="title">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-lg-2" for="sub_title">Sub Title</label>
-										<div class="col-lg-10">
-											<input type="text" class="form-control" name="sub_title" id="sub_title">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-lg-2" for="details">Details</label>
-										<div class="col-lg-10">
-											<textarea rows="5" cols="5" class="form-control" name="details" id="details"></textarea>
-										</div>
-									</div>
-								
+											<div class="form-group">
+												<label class="control-label col-lg-2" for="categories_name">Category Name</label>
+												<div class="col-lg-10">
+													<input type="text" class="form-control" name="categories_name" id="categories_name" value="<?php echo $singleCategories['categories_name'];?>">
+												</div>
+											</div>
+											
+											<div class="form-group">
+												<label class="control-label col-lg-2" for="categories_status">Category Status</label>
+												<div class="col-lg-10">
+													<select name="categories_status" class="form-control" id="categories_status">
+													
+														<option value="1" <?php echo $singleCategories['categories_status'] == 1 ? "selected" : "" ; ?> >Active</option>
+														<option value="0" <?php echo $singleCategories['categories_status'] == 0 ? "selected" : "" ; ?> >In Active</option>
+														
+													</select>
+												</div>
+											</div>
 
-									<div class="form-group">
-										<label class="col-lg-2 control-label text-semibold" for="banners_img">Banner Image</label>
-										<div class="col-lg-10">
-											<input type="file" class="file-input" multiple="multiple"  name="banners_img" id="banners_img">
-										</div>
-									</div>
-									
-								</fieldset>
+										</fieldset>
 
-								<div class="text-right">
-									<a href="bannersList.php" class="btn btn-default">Back To Banner List</a>
-									<button type="submit" class="btn btn-primary" name="add_banner">Submit </button>
-								</div>
-							</form>
+										<div class="text-right">
+											<a href="categoriesList.php" class="btn btn-default">Back To Category List</a>
+											<button type="submit" class="btn btn-primary" name="update_categories"> Update Category </button>
+										</div>
+									</form>
+								<?php } ?>
 						</div>
 					</div>
 						</div>

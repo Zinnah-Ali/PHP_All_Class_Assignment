@@ -91,16 +91,21 @@
 							<thead style="border-top:1px solid #000;">
 								<tr>
 									<th width="5%">Sl.</th>
-									<th width="30$">Project Name</th>
+									<th width="10$">Category Name</th>
+									<th width="25$">Project Name</th>
 									<th width="20%">Project Link</th>
-									<th width="35%">Project Thumb</th>
+									<th width="30%">Project Thumb</th>
 									<th width="10%" class="text-center">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php 
-									$selectQry = "SELECT * FROM our_project WHERE project_status=1";
+									$selectQry = "SELECT our_project.*,categories.categories_name FROM `our_project` 
+									INNER JOIN categories ON our_project.category_id = categories.id
+									WHERE project_status = 1 ";
 									$projectsList = mysqli_query($dbCon, $selectQry);
+
+									
 								?>
 
 								<?php
@@ -108,6 +113,7 @@
 								?>
 								<tr>
 									<td><?= ++$key; ?></td>
+									<td><?= $singleProject['categories_name']; ?></td>
 									<td><?= $singleProject['project_name']; ?></td>
 									<td><?= $singleProject['project_link']; ?></td>
 									<td><img style="width:250px" src="<?= $singleProject['project_thumb']?>"></td>

@@ -3,6 +3,7 @@
 require('../controller/dbConfig.php');
 
 if ( isset($_POST['add_project']) ) {
+    $category_id = $_POST['category_id'];
     $project_name = $_POST['project_name'];
     $project_link = $_POST['project_link'];
     $project_thumb = $_POST['project_thumb'];
@@ -10,7 +11,7 @@ if ( isset($_POST['add_project']) ) {
     if ( $project_name == '' || $project_link == '' ||  $project_thumb == '' ) {
         $message = "ALL Field is Requerd";
     }else{
-        $projectInsertQry = "INSERT INTO our_project (project_name, project_link, project_thumb) VALUES ('{$project_name}','{$project_link}','{$project_thumb}') ";
+        $projectInsertQry = "INSERT INTO our_project (category_id, project_name, project_link, project_thumb) VALUES ('{$category_id}', '{$project_name}','{$project_link}','{$project_thumb}') ";
         $projectsAdd = mysqli_query($dbCon, $projectInsertQry);
 
         if ( isset($projectsAdd)) {

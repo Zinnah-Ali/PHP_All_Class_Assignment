@@ -40,6 +40,13 @@
                     <li><a href="index.html"><i class="icon-bubbles7"></i> <span>Content Message</span></a></li>
 
                     <li>
+                        <a href=""><i class="icon-pushpin"></i> <span>Category</span></a>
+                        <ul>
+                            <li><a href="<?php echo $wpUrl == true ? '' : '../';?>categories/categoriesListAdd.php">Add Category</a></li>
+                            <li><a href="<?php echo $wpUrl == true ? '' : '../';?>categories/categoriesList.php">Category List</a></li>
+                        </ul>
+                    </li>
+                    <li>
                         <a href="#"><i class="icon-cogs"></i> <span>Back Office Setup</span></a>
                         <ul>
                             <li><a href="starters/horizontal_nav.html">Horizontal navigation</a></li>
