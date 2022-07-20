@@ -21,6 +21,8 @@ if (isset($_POST['add_categories'])) {
 }
 
 
+
+
 // Category Update Code 
 
 if (isset($_POST['update_categories'])) {

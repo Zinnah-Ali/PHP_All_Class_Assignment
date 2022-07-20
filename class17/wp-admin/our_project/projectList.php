@@ -104,8 +104,6 @@
 									INNER JOIN categories ON our_project.category_id = categories.id
 									WHERE project_status = 1 ";
 									$projectsList = mysqli_query($dbCon, $selectQry);
-
-									
 								?>
 
 								<?php
@@ -116,7 +114,7 @@
 									<td><?= $singleProject['categories_name']; ?></td>
 									<td><?= $singleProject['project_name']; ?></td>
 									<td><?= $singleProject['project_link']; ?></td>
-									<td><img style="width:250px" src="<?= $singleProject['project_thumb']?>"></td>
+									<td><img style="width:250px" src="../uploads/projectsImg/<?= $singleProject['project_thumb']?>"></td>
 									<td class="text-center">
 										<a href="projectListUpdate.php?project_id=<?php echo $singleProject['id']; ?>"><i class="icon-pencil7"></i></a>
 										<a href="projectDelete.php?project_id=<?php echo $singleProject['id']; ?>"><i class="icon-trash"></i></a>

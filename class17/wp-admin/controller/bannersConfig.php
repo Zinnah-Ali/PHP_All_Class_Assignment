@@ -2,6 +2,7 @@
 // db include
 require('./dbConfig.php');
 
+
 // Insert/Add Banners
 if ( isset($_POST['add_banner']) ) {
     // echo"<pre>";

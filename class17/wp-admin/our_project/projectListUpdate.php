@@ -95,9 +95,29 @@
 								<?php
 									foreach ($updateProjectList as $key => $singleProject) {
 								?>
-									<form class="form-horizontal" action="../controller/projectConfig.php?project_id=<?php echo $singleProject['id']; ?>" method="POST">
+									<form class="form-horizontal" action="../controller/projectConfig.php?project_id=<?php echo $singleProject['id']; ?>" method="POST" enctype="multipart/form-data">
 										<fieldset class="content-group">
 
+											<?php
+												$categorySelecetQry = "SELECT * FROM categories WHERE categories_status=1";
+												$categoryList = mysqli_query($dbCon, $categorySelecetQry);
+											?>
+											<div class="form-group">
+											<label class="control-label col-lg-2" for="category_id">Category Name</label>
+												<div class="col-lg-10">
+													<select name="category_id" class="form-control" id="category_id">
+														<?php
+															foreach ($categoryList as $key => $category) {
+			
+														?>
+														<option <?php echo $category['id'] == $singleProject['category_id'] ? 'selected' : '' ?> value="<?php echo $category['id'];?>"><?php echo $category['categories_name'];?></option>
+
+														<?php
+															}
+														?>
+													</select>
+												</div>
+											</div>	
 											<div class="form-group">
 												<label class="control-label col-lg-2" for="project_name">Project Name</label>
 												<div class="col-lg-10">
@@ -110,17 +130,39 @@
 													<input type="text" class="form-control" name="project_link"  value= "<?= $singleProject['project_link']; ?>" id="project_link">
 												</div>
 											</div>
+
+											
 											<div class="form-group">
+												<label for="" class="control-label col-lg-2" for="project_thumb">Projects Image</label>
+												<div class="col-lg-10">
+
+													<input type="file" class="file-input" multiple="multiple" name="project_thumb" value="<?= $singleProject['project_thumb']; ?>" id="project_thumb">
+													
+													<div class="file-preview">
+														<div class="close fileinput-remove text-right">×</div>
+														<div class="file-preview-thumbnails">
+														<div class="file-preview-frame" id="preview-1657084120586">
+														<img src="../uploads/projectsImg/<?= $singleProject['project_thumb']; ?>" class="file-preview-image" title="<?= $singleProject['project_thumb']; ?>" alt="<?= $singleProject['project_thumb']; ?>" style="width:auto;height:160px;">
+														</div>
+														</div>
+														<div class="clearfix"></div>   <div class="file-preview-status text-center text-success"></div>
+														<div class="kv-fileinput-error file-error-message" style="display: none;"></div>
+													</div>
+												</div>
+											</div>
+
+
+											<!-- <div class="form-group">
 												<label class="control-label col-lg-2" for="project_thumb">Project Image</label>
 												<div class="col-lg-10">
 													<input type="text" class="form-control" name="project_thumb" value= "<?= $singleProject['project_thumb']; ?>" id="project_thumb">
 												</div>
-											</div>
+											</div> -->
 
 										</fieldset>
 
 										<div class="text-right">
-											<a href="singleProjectsList.php" class="btn btn-default">Back To singleProject List</a>
+											<a href="projectList.php" class="btn btn-default">Back To Project List</a>
 											<button type="submit" class="btn btn-primary" name="update_project"> Update singleProject </button>
 										</div>
 									</form>

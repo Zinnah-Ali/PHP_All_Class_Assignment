@@ -111,7 +111,7 @@
 								<tr>
 									<td><?= ++$key; ?></td>
 									<td><?= $singleStaff['staff_name']; ?></td>
-									<td><img style="width:250px" src="<?= $singleStaff['staff_img']?>"></td>
+									<td><img style="width:250px" src="../uploads/staffImg/<?= $singleStaff['staff_img']?>"></td>
 									<td> Facebook </td>
 									<td> Twitter </td>
 									<td> Linkdine </td>

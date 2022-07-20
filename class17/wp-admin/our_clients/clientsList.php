@@ -109,7 +109,7 @@
 								<tr>
 									<td><?= ++$key; ?></td>
 									<td><?= $client['client_name']; ?></td>
-									<td><img style="width:250px" src="<?= $client['client_img']?>"></td>
+									<td><img style="width:250px" src="../uploads/clientsImg/<?= $client['client_img']?>"></td>
 									<td><?= $client['client_review']; ?></td>
 									<td class="text-center">
 										<a href="clientsListUpdate.php?client_id=<?php echo $client['id']; ?>"><i class="icon-pencil7"></i></a>

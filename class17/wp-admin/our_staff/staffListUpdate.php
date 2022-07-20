@@ -95,7 +95,7 @@
 								<?php
 									foreach ($updateStafftList as $key => $singleStaff) {
 								?>
-									<form class="form-horizontal" action="../controller/staffConfig.php?staff_id=<?php echo $singleStaff['id']; ?>" method="POST">
+									<form class="form-horizontal" action="../controller/staffConfig.php?staff_id=<?php echo $singleStaff['id']; ?>" method="POST" enctype="multipart/form-data" >
 										<fieldset class="content-group">
 
 											<div class="form-group">
@@ -104,12 +104,33 @@
 													<input type="text" class="form-control" name="staff_name" value="<?= $singleStaff['staff_name']; ?>" id="staff_name">
 												</div>
 											</div>
+
 											<div class="form-group">
+												<label for="" class="control-label col-lg-2" for="staff_img">Projects Image</label>
+												<div class="col-lg-10">
+
+													<input type="file" class="file-input" multiple="multiple" name="staff_img" value="<?= $singleStaff['staff_img']; ?>" id="staff_img">
+													
+													<div class="file-preview">
+														<div class="close fileinput-remove text-right">×</div>
+														<div class="file-preview-thumbnails">
+														<div class="file-preview-frame" id="preview-1657084120586">
+														<img src="../uploads/staffImg/<?= $singleStaff['staff_img']; ?>" class="file-preview-image" title="<?= $singleStaff['staff_img']; ?>" alt="<?= $singleStaff['staff_img']; ?>" style="width:auto;height:160px;">
+														</div>
+														</div>
+														<div class="clearfix"></div>   <div class="file-preview-status text-center text-success"></div>
+														<div class="kv-fileinput-error file-error-message" style="display: none;"></div>
+													</div>
+												</div>
+											</div>
+
+											<!-- <div class="form-group">
 												<label class="control-label col-lg-2" for="staff_img">Staff Image</label>
 												<div class="col-lg-10">
 													<input type="text" class="form-control" name="staff_img"  value="<?= $singleStaff['staff_img']; ?>" id="staff_img">
 												</div>
-											</div>
+											</div> -->
+
 											<div class="form-group">
 												<label class="control-label col-lg-2" for="facebook">Facebook Link</label>
 												<div class="col-lg-10">

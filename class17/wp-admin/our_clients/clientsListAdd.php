@@ -86,8 +86,8 @@
 									<span class="text-semibold"></span> <?php echo $_GET['msg']; ?>
 								</div> 
 								<?php } ?>
-							<form class="form-horizontal" action="../controller/clientsConfig.php" method="POST">
-								<fieldset class="content-group">
+							<form class="form-horizontal" action="../controller/clientsConfig.php" method="POST" enctype="multipart/form-data">
+								<fieldset class="content-group" >
 
 									<div class="form-group">
 										<label class="control-label col-lg-2" for="client_name">Client Name</label>
@@ -95,12 +95,23 @@
 											<input type="text" class="form-control" name="client_name" id="client_name">
 										</div>
 									</div>
+
 									<div class="form-group">
+										<label class="col-lg-2 control-label text-semibold" for="client_img">Client Image</label>
+										<div class="col-lg-10">
+											<input type="file" class="file-input" multiple="multiple"  name="client_img" id="client_img">
+										</div>
+									</div>
+
+
+									<!-- <div class="form-group">
 										<label class="control-label col-lg-2" for="client_img">Client Image</label>
 										<div class="col-lg-10">
 											<input type="text" class="form-control" name="client_img" id="client_img">
 										</div>
-									</div>
+									</div> -->
+									
+								
 									<div class="form-group">
 										<label class="control-label col-lg-2" for="client_review">Client Review</label>
 										<div class="col-lg-10">
@@ -110,7 +121,7 @@
 								</fieldset>
 
 								<div class="text-right">
-									<a href="staffList.php" class="btn btn-default">Back To Project List</a>
+									<a href="clientsList.php" class="btn btn-default">Back To Client List</a>
 									<button type="submit" class="btn btn-primary" name="add_client">Submit </button>
 								</div>
 							</form>

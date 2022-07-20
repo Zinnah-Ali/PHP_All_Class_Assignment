@@ -91,7 +91,7 @@
 									<span class="text-semibold"></span> <?php echo $_GET['msg']; ?>
 								</div> 
 								<?php } ?>
-							<form class="form-horizontal" action="../controller/projectConfig.php" method="POST">
+							<form class="form-horizontal" action="../controller/projectConfig.php" method="POST" enctype="multipart/form-data">
 								<fieldset class="content-group">
 								<?php 
 									$categorySelectQry = "SELECT * FROM categories WHERE categories_status=1";
@@ -125,12 +125,20 @@
 											<input type="text" class="form-control" name="project_link" id="project_link">
 										</div>
 									</div>
+
 									<div class="form-group">
+										<label class="col-lg-2 control-label text-semibold" for="project_thumb">Project Image</label>
+										<div class="col-lg-10">
+											<input type="file" class="file-input" multiple="multiple"  name="project_thumb" id="project_thumb">
+										</div>
+									</div>
+
+									<!-- <div class="form-group">
 										<label class="control-label col-lg-2" for="project_thumb">Project Image</label>
 										<div class="col-lg-10">
 											<input type="text" class="form-control" name="project_thumb" id="project_thumb">
 										</div>
-									</div>
+									</div> -->
 
 								</fieldset>
 

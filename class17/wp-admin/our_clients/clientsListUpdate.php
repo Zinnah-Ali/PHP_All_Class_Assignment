@@ -95,7 +95,7 @@
 								<?php
 									foreach ($updateclientstList as $key => $client) {
 								?>
-									<form class="form-horizontal" action="../controller/clientsConfig.php?client_id=<?php echo $client['id']; ?>" method="POST">
+									<form class="form-horizontal" action="../controller/clientsConfig.php?client_id=<?php echo $client['id']; ?>" method="POST" enctype="multipart/form-data">
 										<fieldset class="content-group">
 
 											<div class="form-group">
@@ -104,12 +104,34 @@
 													<input type="text" class="form-control" name="client_name" value= "<?= $client['client_name']; ?>"  id="client_name">
 												</div>
 											</div>
+
+											
 											<div class="form-group">
+												<label for="" class="control-label col-lg-2" for="client_img">Projects Image</label>
+												<div class="col-lg-10">
+
+													<input type="file" class="file-input" multiple="multiple" name="client_img" value="<?= $client['client_img']; ?>" id="client_img">
+													
+													<div class="file-preview">
+														<div class="close fileinput-remove text-right">×</div>
+														<div class="file-preview-thumbnails">
+														<div class="file-preview-frame" id="preview-1657084120586">
+														<img src="../uploads/clientsImg/<?= $client['client_img']; ?>" class="file-preview-image" title="<?= $client['client_img']; ?>" alt="<?= $client['client_img']; ?>" style="width:auto;height:160px;">
+														</div>
+														</div>
+														<div class="clearfix"></div>   <div class="file-preview-status text-center text-success"></div>
+														<div class="kv-fileinput-error file-error-message" style="display: none;"></div>
+													</div>
+												</div>
+											</div>
+
+											<!-- <div class="form-group">
 												<label class="control-label col-lg-2" for="client_img">Client Image</label>
 												<div class="col-lg-10">
 													<input type="text" class="form-control" name="client_img" value= "<?= $client['client_img']; ?>" id="client_img">
 												</div>
-											</div>
+											</div> -->
+
 											<div class="form-group">
 												<label class="control-label col-lg-2" for="client_review">Client Review</label>
 												<div class="col-lg-10">

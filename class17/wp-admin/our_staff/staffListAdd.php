@@ -86,7 +86,7 @@
 									<span class="text-semibold"></span> <?php echo $_GET['msg']; ?>
 								</div> 
 								<?php } ?>
-							<form class="form-horizontal" action="../controller/staffConfig.php" method="POST">
+							<form class="form-horizontal" action="../controller/staffConfig.php" method="POST" enctype="multipart/form-data">
 								<fieldset class="content-group">
 
 									<div class="form-group">
@@ -95,12 +95,21 @@
 											<input type="text" class="form-control" name="staff_name" id="staff_name">
 										</div>
 									</div>
+
 									<div class="form-group">
+										<label class="col-lg-2 control-label text-semibold" for="staff_img">Staff Image</label>
+										<div class="col-lg-10">
+											<input type="file" class="file-input" multiple="multiple"  name="staff_img" id="staff_img">
+										</div>
+									</div>
+
+									<!-- <div class="form-group">
 										<label class="control-label col-lg-2" for="staff_img">Staff Image</label>
 										<div class="col-lg-10">
 											<input type="text" class="form-control" name="staff_img" id="staff_img">
 										</div>
-									</div>
+									</div> -->
+
 									<div class="form-group">
 										<label class="control-label col-lg-2" for="facebook">Facebook Link</label>
 										<div class="col-lg-10">
