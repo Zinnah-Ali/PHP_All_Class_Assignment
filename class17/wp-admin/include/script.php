@@ -19,3 +19,6 @@
 <script type="text/javascript" src="<?php echo $baseUrl;?>assets/js/pages/form_bootstrap_select.js"></script>
 <script type="text/javascript" src="<?php echo $baseUrl;?>assets/js/pages/uploader_bootstrap.js"></script>
 <!-- /theme JS files -->
+<script>
+window.alert = function() {};
+</script>
