@@ -1,5 +1,4 @@
 <?php
-
 	if( basename(__DIR__) !== "wp-admin" ){
 		$baseUrl = "../";
 		$wpUrl = true;
