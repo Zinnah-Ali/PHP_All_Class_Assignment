@@ -8,3 +8,5 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="css/styleOne.css" />
 </head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
