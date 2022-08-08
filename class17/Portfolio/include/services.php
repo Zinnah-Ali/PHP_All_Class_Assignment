@@ -1,4 +1,48 @@
-<section class="ftco-section ftco-no-pb ftco-no-pt ftco-services bg-light" id="services-section">
+<?php
+require('../wp-admin/controller/dbConfig.php');
+$servicesQry = "SELECT * FROM services WHERE services_status = 1";
+$servicesList = mysqli_query( $dbCon,  $servicesQry );
+?>
+  
+  <section class="ftco-section ftco-no-pb ftco-no-pt ftco-services bg-light" id="services-section">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-md-4 ftco-animate py-5 nav-link-wrap">
+          <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <?php
+            foreach ($servicesList as $key => $servicesTitle) {
+            ?>
+            <a class="nav-link px-4" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
+              aria-controls="v-pills-2" aria-selected="false"><span class="mr-3 flaticon-flasks"></span> <?= $servicesTitle['services_name']; ?></a>
+            <?php } ?>
+          </div>
+        </div>
+        <div class="col-md-8 ftco-animate p-4 p-md-5 d-flex align-items-center">
+          <div class="tab-content pl-md-5" id="v-pills-tabContent">
+            <?php
+              //  foreach ($servicesList as $key => $servicesContent) {
+              //   echo $servicesContent['services_name'];
+               
+              ?>
+            <div class="tab-pane fade py-5" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+              <span class="icon mb-3 d-block flaticon-flasks"></span>
+              <h2 class="mb-4">Research</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt voluptate, quibusdam sunt iste
+                dolores consequatur</p>
+              <p>Inventore fugit error iure nisi reiciendis fugiat illo pariatur quam sequi quod iusto facilis officiis
+                nobis sit quis molestias asperiores rem, blanditiis! Commodi exercitationem vitae deserunt qui nihil ea,
+                tempore et quam natus quaerat doloremque.</p>
+              <p><a href="#" class="btn btn-primary px-4 py-3">Learn More</a></p>
+            </div>
+              <!-- <?php?> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="ftco-section ftco-no-pb ftco-no-pt ftco-services bg-light" id="services-section">
     <div class="container">
       <div class="row no-gutters">
         <div class="col-md-4 ftco-animate py-5 nav-link-wrap">
@@ -100,8 +144,10 @@
         </div>
       </div>
     </div>
-  </section>
-
+  </section> -->
+  
+  
+  
   <section class="ftco-section-2 img" style="background-image:url(images/bg_3.jpg)">
     <div class="container">
       <div class="row d-md-flex justify-content-end">
@@ -146,3 +192,4 @@
       </div>
     </div>
   </section>
+
